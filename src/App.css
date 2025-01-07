@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to right, #806517, #78866b);
+  max-width: 1200px;
+}
+
+header {
+  text-align: center;
+  color: #36454F;
+  padding: 30px;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 30px;
+}
+
+li {
+  list-style: none;
+  flex-wrap: wrap;
+  max-width: calc(100% / 2);
+  gap: 30px;
+  padding: 30px;
+}
+
+.btn {
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.btn-delete {
+  background-color: #b90e0a;
+  color: #fff
+}
