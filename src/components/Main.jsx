@@ -19,9 +19,14 @@ export default function Main({ removePost }) {
         })
     }
 
+    // function removePost(id) {
+    //     axios.delete(apiUrl + "/" + id)
+    //     // getData();
+    //     setPosts(posts.filter((post) => post.id !== id))
+    // }
     function removePost(id) {
         axios.delete(apiUrl + "/" + id)
-        setPosts(posts.filter((post) => post.id !== id))
+            .then(() => getData());
     }
     return (
         <ul>
