@@ -30,6 +30,12 @@ li {
   padding: 30px;
 }
 
+input {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+
 .btn {
   padding: 5px;
   border-radius: 20px;
