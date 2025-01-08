@@ -8,7 +8,7 @@ let newId = 0;
 export default function Main({ removePost }) {
 
     const newPost = {
-        id: newId,
+        // id: newId,
         title: "",
         content: "",
         img: "",
@@ -18,14 +18,17 @@ export default function Main({ removePost }) {
     const [posts, setPosts] = useState([])
     const [formData, setFormData] = useState(newPost)
 
+
     useEffect(() => {
         // console.log("Effect used")
         getData()
     }, [])
 
+
+
     function getData() {
         axios.get(apiUrl).then((res) => {
-            console.log(res.data)
+            // console.log(res.data)
             setPosts(res.data.data)
         })
     }
@@ -43,9 +46,9 @@ export default function Main({ removePost }) {
 
     function handleSubmit(event) {
         event.preventDefault();
-
-        setPosts(getData => [...getData, formData]);
-        axios.post(apiUrl).then(() => getData(res.data.data))
+        newId = posts.reduce((curr, next) => curr.id < next.id ? next : curr).id + 1
+        axios.post(apiUrl).then(() => setPosts(getData => [...getData, { id: newId, ...formData }]))
+            .then(console.log(posts))
         setFormData(newPost);
 
     }
