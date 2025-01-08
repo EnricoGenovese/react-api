@@ -44,8 +44,8 @@ export default function Main({ removePost }) {
     function handleSubmit(event) {
         event.preventDefault();
 
-        setPosts(getData => [...getData, newPost]);
-        axios.post(apiUrl).then(() => getData())
+        setPosts(getData => [...getData, formData]);
+        axios.post(apiUrl).then(() => getData(res.data.data))
         setFormData(newPost);
 
     }
